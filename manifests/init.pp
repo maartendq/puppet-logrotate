@@ -15,12 +15,15 @@
 # == Sample Usage:
 #
 class logrotate (
-  $rotation_interval = 'daily',
-  $retention_period = 90
-) {
+  $package               = $::logrotate::params::package,
+  $log_dir               = $::logrotate::params::log_dir,
+  $logrotate_archive_dir = $::logrotate::params::logrotate_archive_dir,
+  $rotation_interval     = 'daily',
+  $retention_period      = '90',
+) inherits logrotate::params {
 
-#  class {'logrotate::install': } ->
-#  class {'logrotate::config' : } ->
+  class {'logrotate::packages': } #->
+#  class {'logrotate::config' : } #->
 #  class {'logrotate::cronjob' : }
 
 }
