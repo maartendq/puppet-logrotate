@@ -2,38 +2,38 @@
 ### Served by:        '<%= scope.lookupvar('::servername') %>'
 ### Module:           '<%= scope.to_hash['module_name'] %>'
 ### Template source:  'MODULES<%= template_source.gsub(Regexp.new("^#{Puppet::Node::Environment.current[:modulepath].gsub(':','|')}"),"") %>'
-<%= log %> {
-<% if options
-     options.each do |opt|
+<%= @log %> {
+<% if @options
+     @options.each do |opt|
 -%>
   <%= opt %>
 <%   end
    end
 -%>
-<% if interval and not interval.empty? -%>
-  <%= interval %>
+<% if @interval and not @interval.empty? -%>
+  <%= @interval %>
 <% end -%>
-<% if rotation and not rotation.empty? -%>
-  rotate <%= rotation %>
+<% if @rotation and not @rotation.empty? -%>
+  rotate <%= @rotation %>
 <% end -%>
-<% if size and not size.empty? -%>
-  size <%= size %>
+<% if @size and not @size.empty? -%>
+  size <%= @size %>
 <% end -%>
-<% if maxage and not maxage.empty? -%>
-  maxage <%= maxage %>
+<% if @maxage and not @maxage.empty? -%>
+  maxage <%= @maxage %>
 <% end -%>
-<% if minsize and not minsize.empty? -%>
-  minsize <%= minsize %>
+<% if @minsize and not @minsize.empty? -%>
+  minsize <%= @minsize %>
 <% end -%>
-<% if create and not create.empty? -%>
-  create <%= create %>
+<% if @create and not @create.empty? -%>
+  create <%= @create %>
 <% end -%>
-<% if archive and not archive.empty? -%>
-  olddir <%= olddir_real %>
+<% if @archive and not @archive.empty? -%>
+  olddir <%= @olddir_real %>
 <% end -%>
-<% if postrotate and not postrotate.empty? -%>
+<% if @postrotate and not @postrotate.empty? -%>
   postrotate
-<% postrotate.each do |script| -%>
+<% @postrotate.each do |script| -%>
     <%= script %>
 <% end -%>
   endscript
