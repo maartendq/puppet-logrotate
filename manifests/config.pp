@@ -29,7 +29,7 @@ class logrotate::config (
   File {
     owner   => 'root',
     group   => 'root',
-    require => Class['logrotate::install'],
+    require => Class['logrotate::packages'],
   }
 
   file { '/etc/logrotate.d/':

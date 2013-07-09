@@ -16,7 +16,7 @@ class logrotate::params {
 
   case $::operatingsystem {
     /(?i:redhat|centos)/: {
-      $package                = 'logrotate',
+      $package                = 'logrotate'
       $log_dir                = '/var/log'
       $logrotate_archive_dir  = "${log_dir}/archives"
     }
