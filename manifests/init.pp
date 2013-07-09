@@ -22,8 +22,7 @@ class logrotate (
   $retention_period      = '90',
 ) inherits logrotate::params {
 
-  class {'logrotate::packages': } #->
-#  class {'logrotate::config' : } #->
-#  class {'logrotate::cronjob' : }
+  class {'logrotate::packages': }
+  class {'logrotate::config' : }
 
 }

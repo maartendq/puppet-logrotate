@@ -22,7 +22,7 @@ class logrotate::params {
     }
 
     default: {
-      fail("Unsupported OS: ${::operatingsystem}, module ${module_name} only supports operatingsystem RedHat/CentOS")
+      fail("Unsupported OS: ${::operatingsystem}, module ${module_name} only supports RedHat/CentOS")
     }
   }
 }
