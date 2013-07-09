@@ -73,12 +73,14 @@ define logrotate::rule (
     default   => $olddir,
   }
 
-  file { $olddir_real:
-    ensure  => 'directory',
-    owner   => $olddir_owner,
-    group   => $olddir_group,
-    mode    => $olddir_mode,
-    require => File[$logrotate::logrotate_archive_dir],
+  if $archive {
+    file { $olddir_real:
+      ensure  => 'directory',
+      owner   => $olddir_owner,
+      group   => $olddir_group,
+      mode    => $olddir_mode,
+      require => File[$logrotate::logrotate_archive_dir],
+    }
   }
 
   file { "/etc/logrotate.d/${name}":
