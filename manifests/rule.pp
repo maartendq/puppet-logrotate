@@ -49,7 +49,7 @@
 #      postrotate => 'Your command here',
 #   }
 #
-define up_logrotate::rule (
+define logrotate::rule (
   $log          = false,
   $interval     = false,
   $rotation     = false,
@@ -59,12 +59,14 @@ define up_logrotate::rule (
   $options      = false,
   $archive      = false,
   $olddir       = 'UNSET',
-  $olddir_owner = 'um',
-  $olddir_group = 'um',
+  $olddir_owner = 'root',
+  $olddir_group = 'root',
   $olddir_mode  = '0755',
   $create       = false,
   $postrotate   = false
-) inherits logrotate {
+) {
+
+  include logrotate
 
   $olddir_real = $olddir ? {
     'UNSET'   => "${logrotate::logrotate_archive_dir}/${name}",
