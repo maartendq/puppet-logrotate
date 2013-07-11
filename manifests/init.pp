@@ -5,7 +5,7 @@
 # == Parameters:
 #
 # $rotation_interval=[ daily | weekly | monthly | yearly]
-# $retention_period=[ int ($rotation_interval is unit) ]
+# $retention_period=[ pick_a_number_for_log_retention ]
 #
 # == Actions:
 #  - Install logrotate
